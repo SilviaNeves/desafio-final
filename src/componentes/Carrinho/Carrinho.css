@@ -1,0 +1,48 @@
+.container {
+  position: relative;
+  flex-direction: column;
+  display:flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  padding: 5px;
+  margin: auto;
+}
+.container h1{
+  align-items: right;
+}
+.remove {
+  border: none;
+  color: black;
+  background-color: antiquewhite;
+  border-radius: 2px;
+  }
+
+.removeItem{
+  border: none;
+  color: black;
+  background-color: antiquewhite;
+  border-radius: 2px;
+  }
+  .removeItem:hover{
+    background-color: blue;
+    color: black;
+  }
+  .adicionarItem {
+    border: none;
+    background-color: none;
+    width: 100%;
+    }
+   .adicionarItem:hover{
+    background-color: blue;
+    color: black;
+  }
+  .adicionarItem h1 {
+    color: blue;
+
+    }
+   .adicionarItem h1:hover{
+    color: black;
+
+  }
