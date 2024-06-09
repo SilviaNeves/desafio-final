@@ -2,27 +2,30 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import logo from './componentes/header/logo.png';
 import Carrinho from './componentes/Carrinho/Carrinho';
-
+import BotaoToggle from './componentes/Buttons/BotaoToggle/BotaoToggle';
+import Footer from './componentes/Footer/Footer';
 
 const App = () => {
 const [itens, setItens] = useState([]);
-const [carregando, setCarregando] = useState('false');
-const [erro, setErro] = useState('null');
+const [carregando, setCarregando] = useState(false);
+const [erro, setErro] = useState(null);
 const [pesquisa, setPesquisa] = useState("");
 const [categorias, setCategorias] = useState([]);
 const [categoriaSelecionada, setCategoriaSelecionada] = useState("");
 const [carrinho, setCarrinho] = useState([]);
-const [carrinhoVisivel, setCarrinhoVisivel] = useState([true]);
+const [carrinhoVisivel, setCarrinhoVisivel] = useState(false);
+const [limparPesquisa, setLimparPesquisa] = useState(false);
 
 
 // Função para buscar itens na api do mercado livre
-  const buscarItem = async (consulta = "", categorias="")=>{
+  const buscarItem = async (consulta = "", categorias="") => {
     setCarregando(true);
     setErro(null);
     try {
-      const response = await fetch(`https://api.mercadolibre.com/sites/MLB/search?q=ofertas${consulta}${categorias ? `&category=${categorias}` : ''}`);
+      const response = await fetch(`https://api.mercadolibre.com/sites/MLB/search?q=ofertas${consulta ? `&q=${consulta}` : ''}${categorias ? `&category=${categorias}` : ''}`);
       const data = await response.json();
       setItens(data.results);
+
     } catch (error) {
       setErro(error);
     } finally {
@@ -40,14 +43,27 @@ const [carrinhoVisivel, setCarrinhoVisivel] = useState([true]);
   };
 // useEffect para buscar os itens iniciais
   useEffect (() => { 
-    buscarItem();
+    buscarItem("","");
     buscarCategorias();
   }, [ ]);
+
+   // useEffect para limpar o input de pesquisa
+   useEffect(() => {
+    if (limparPesquisa) {
+      setPesquisa("");
+      setLimparPesquisa(false);
+    }
+  }, [limparPesquisa]);
+
   // Função para pesquisar itens na api do mercado livre
   const handleSearch=(evento) => {
     evento.preventDefault();
     buscarItem(pesquisa, categoriaSelecionada);
+    setLimparPesquisa(true);  // o estado para limpar o input de pesquisa
   };
+
+
+
   // Função para adicionar item ao carrinho
   const adicionarAoCarrinho = (item) => {
     setCarrinho([...carrinho, item]);
@@ -58,9 +74,10 @@ const [carrinhoVisivel, setCarrinhoVisivel] = useState([true]);
     const novoCarrinho = carrinho.filter((_, i) => i !== index);
     setCarrinho(novoCarrinho);
   };
-  // Função para alternar visibilidade do carrinho
-  const toggleCarrinhoVisivel = () => {
-    setCarrinhoVisivel(!carrinhoVisivel);
+
+   // Função para alternar visibilidade do carrinho
+   const toggleCarrinhoVisivel = () => {
+    setCarrinhoVisivel(prevState => !prevState);
   };
 
 
@@ -68,17 +85,10 @@ const [carrinhoVisivel, setCarrinhoVisivel] = useState([true]);
   return (
     <div className="App">
       <header className="App-header">
+        <h1 className="title"> MERCAD🌻 CAMPINH🌻 GIRASS🌻L</h1>
           <img src= {logo} alt='logo' className='logo-header'/>
-          <h1>Mercado Campinho Girassol</h1>
-            <button onClick={toggleCarrinhoVisivel}>
-              {carrinhoVisivel ? 'Ocultar Carrinho' : 'Mostrar Carrinho'}
-            </button>
-          {carrinhoVisivel && (
-        <Carrinho
-          itensCarrinho={carrinho}
-          removerDoCarrinho={removerDoCarrinho}
-        />
-      )}
+          <BotaoToggle visivel={carrinhoVisivel} onToggle={toggleCarrinhoVisivel} />
+
 </header>
       <form className='pesquisa-form' onSubmit={handleSearch}>    
         <select
@@ -117,9 +127,21 @@ const [carrinhoVisivel, setCarrinhoVisivel] = useState([true]);
     </div>  
   ))}
 </div> 
+{carrinhoVisivel && (
+        <div className="modal-overlay" onClick={toggleCarrinhoVisivel}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <Carrinho itensCarrinho={carrinho} 
+            removerDoCarrinho={removerDoCarrinho} 
+            fecharCarrinho={toggleCarrinhoVisivel}/>
+          </div>
+        </div>
+)
+};
 
+<Footer></Footer>
 </div>
 );
 }
+
 export default App;
 

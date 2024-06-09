@@ -2,7 +2,7 @@ header{
   border: 1px #0056b3 solid;
   align-items: center;
   padding: 20px;
-  background-color: #eaee0f;
+  background-color: #f7f9c5;
   justify-content: space-between;
   display: flex;
   gap: 20px;
@@ -16,11 +16,24 @@ header{
   width: 150px;
   height: 150px;
 }
+.title{
+  font-family: fantasy;
+  
+  color: rgb(238, 160, 72);
+  font-size: 50px;
+  font-weight:lighter;
+  text-align: center;
+  margin: 5px;
+  border: 5px solid #3a06ca;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #007bff;
 
+}
 .pesquisa-form {
   align-items: center;
   padding: 20px;
-  background-color: #eaee0f;
+  background-color: #f7f9c5;
   justify-content: space-between;
   display: flex;
   gap: 20px;
@@ -61,6 +74,7 @@ button {
   color: #fff;
   cursor: pointer;
 }
+
 
 /* Estilos para o container dos cards */
 .itens-container {
@@ -134,4 +148,43 @@ button {
 
 .item-details button:hover {
   background-color: #0056b3;
+}
+
+/* Estilos do modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
+  width: 80%;
+  max-width: 600px;
+}
+
+.fechar-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.fechar-modal:hover {
+  background: #ff1a1a;
 }

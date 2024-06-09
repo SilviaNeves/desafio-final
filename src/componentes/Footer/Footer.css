@@ -1,0 +1,19 @@
+.footer {
+    background-color: #f7f9c5;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border: 1px solid #0056b3;
+    margin:0;
+    
+  }
+  
+  .footer p {
+    margin: 0;
+    color: blue;
+  }
+  

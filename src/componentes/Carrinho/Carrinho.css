@@ -1,48 +1,66 @@
-.container {
+.carrinho-container {
   position: relative;
+  border: 1px #0056b3 solid;
+  padding: 10px;
+  background-color: #fff;
+  display: flex;
   flex-direction: column;
-  display:flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
-  align-items: center;
+  gap: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.carrinho-item {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.remove-item {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
   padding: 5px;
-  margin: auto;
+  border-radius: 5px;
+  cursor: pointer;
 }
-.container h1{
-  align-items: right;
+
+.remove-item:hover {
+  background-color: #ff1a1a;
 }
-.remove {
+
+/* Estilos do modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
+  width: 80%;
+  max-width: 600px;
+}
+
+.fechar-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ff4d4d;
+  color: white;
   border: none;
-  color: black;
-  background-color: antiquewhite;
-  border-radius: 2px;
-  }
-
-.removeItem{
-  border: none;
-  color: black;
-  background-color: antiquewhite;
-  border-radius: 2px;
-  }
-  .removeItem:hover{
-    background-color: blue;
-    color: black;
-  }
-  .adicionarItem {
-    border: none;
-    background-color: none;
-    width: 100%;
-    }
-   .adicionarItem:hover{
-    background-color: blue;
-    color: black;
-  }
-  .adicionarItem h1 {
-    color: blue;
-
-    }
-   .adicionarItem h1:hover{
-    color: black;
-
-  }
+  padding: 5px;
+  border-radius: 
+}

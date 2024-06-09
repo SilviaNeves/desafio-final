@@ -1,0 +1,21 @@
+.carrinho-item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .remove-item {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .remove-item:hover {
+    background-color: #ff1a1a;
+  }
+  
