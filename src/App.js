@@ -62,8 +62,6 @@ const [limparPesquisa, setLimparPesquisa] = useState(false);
     setLimparPesquisa(true);  // o estado para limpar o input de pesquisa
   };
 
-
-
   // Função para adicionar item ao carrinho
   const adicionarAoCarrinho = (item) => {
     setCarrinho([...carrinho, item]);
@@ -80,7 +78,6 @@ const [limparPesquisa, setLimparPesquisa] = useState(false);
     setCarrinhoVisivel(prevState => !prevState);
   };
 
-
   // Função para pesquisar itens na api do mercado livre
   return (
     <div className="App">
@@ -88,7 +85,6 @@ const [limparPesquisa, setLimparPesquisa] = useState(false);
         <h1 className="title"> MERCAD🌻 CAMPINH🌻 GIRASS🌻L</h1>
           <img src= {logo} alt='logo' className='logo-header'/>
           <BotaoToggle visivel={carrinhoVisivel} onToggle={toggleCarrinhoVisivel} />
-
 </header>
       <form className='pesquisa-form' onSubmit={handleSearch}>    
         <select

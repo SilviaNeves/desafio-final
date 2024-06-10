@@ -6,16 +6,11 @@ componentização e hooks (useState, useEffect), para exibição dos dados  em
 uma interface amigável. A aplicação constitui em realizar uma requisição GET 
 ao carregar a página tratando possíveis erros com try/catch.
 
-
-
 ## Documentação da API
 
 https://api.mercadolibre.com/sites/MLB/categories
-      
-
 
 https://api.mercadolibre.com/sites/MLB/search?q=ofertas${consulta}${categorias 
-
 
 https://api.mercadolibre.com/sites/MLB/search?q=ofertas
 
@@ -23,11 +18,9 @@ https://api.mercadolibre.com/sites/MLB/search?q=ofertas
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
-
 ## 🛠 Habilidades
 
 Javascript, React, HTML, CSS...
-
 
 ## Processo de Aprendizado
 

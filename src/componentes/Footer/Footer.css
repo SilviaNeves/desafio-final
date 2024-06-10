@@ -16,4 +16,16 @@
     margin: 0;
     color: blue;
   }
+  @media (max-width: 600px) {
+    .footer {
+      padding: 20px;
+      text-align: left;
+    }
+  }
   
+  @media (min-width: 601px) {
+    .footer {
+      padding: 10px;
+      text-align: center;
+    }
+  }

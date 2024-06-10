@@ -9,7 +9,17 @@
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+@media (max-width: 600px) {
+  .carrinho-container {
+    flex-direction: column;
+  }
+}
 
+@media (min-width: 601px) {
+  .carrinho-container {
+    flex-direction: row;
+  }
+}
 .carrinho-item {
   display: flex;
   flex-direction: column;
@@ -62,5 +72,5 @@
   color: white;
   border: none;
   padding: 5px;
-  border-radius: 
+  border-radius: 5px;
 }

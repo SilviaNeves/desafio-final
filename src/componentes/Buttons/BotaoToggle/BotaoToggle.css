@@ -13,13 +13,6 @@
     transition: background-color 0.3s; /* Transição suave ao mudar a cor de fundo */
   }
 
-  /* .botao-toggle {
-    position: relative;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-  } */
-  
   .contador {
     background-color: red;
     color: white;
@@ -30,5 +23,29 @@
     top: -10px;
     right: -10px;
   }
+  @media (max-width: 600px) {
+    .botao-toggle {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
   
+    .contador {
+      top: -5px;
+      right: -5px;
+      font-size: 12px;
+    }
+  }
+  
+  @media (min-width: 601px) {
+    .botao-toggle {
+      font-size: 16px;
+      padding: 10px 20px;
+    }
+  
+    .contador {
+      top: -10px;
+      right: -10px;
+      font-size: 14px;
+    }
+  }
   
